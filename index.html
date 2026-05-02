@@ -360,7 +360,7 @@
           <span>🔐</span>
           <div class="divider-line"></div>
         </div>
-        <label for="password">รหัสผ่าน HR</label>
+        <label for="password">รหัสผ่าน HR78XXXXX</label>
         <div class="input-wrap">
           <input type="password" id="password" placeholder="กรอกรหัส HR ของท่าน" autocomplete="off"/>
           <button class="eye-btn" type="button" onclick="togglePwd()" aria-label="แสดง/ซ่อน">
@@ -662,7 +662,7 @@
       err.textContent = '';
       
       if (!pwd) {
-        err.innerHTML = '⚠️ กรุณากรอกรหัส HR 78XXXXX';
+        err.innerHTML = '⚠️ กรุณากรอกรหัส HR';
         card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake');
         return;
       }
