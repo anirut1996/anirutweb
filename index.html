@@ -1,6 +1,11 @@
 
 
-<!DOCTYPE html>
+
+      
+
+ 
+
+  <!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8"/>
@@ -33,175 +38,6 @@
       pointer-events: none; z-index: 0;
     }
 
-    /* ── LOGIN SECTION STYLES ── */
-    #login-section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 10;
-    }
-    .topbar {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 7px;
-      background: linear-gradient(90deg, var(--red) 0%, var(--red) 33%, var(--green) 33%, var(--green) 66%, var(--orange) 66%, var(--orange) 100%);
-    }
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-    }
-    @keyframes popIn {
-      from { opacity: 0; transform: scale(0.92) translateY(20px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-    .logo-badge {
-      background: var(--red);
-      padding: 10px 28px 14px;
-      border-radius: 12px 12px 0 0;
-      text-align: center;
-      box-shadow: 0 -4px 20px rgba(227,24,55,0.25);
-    }
-    .logo-badge .seven {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 64px;
-      line-height: 1;
-      color: var(--white);
-      letter-spacing: -2px;
-      text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
-    }
-    .logo-badge .seven span.n { color: var(--stripe); }
-    .logo-badge .eleven {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 16px;
-      letter-spacing: 0.4em;
-      color: rgba(255,255,255,0.85);
-      margin-top: -6px;
-    }
-    .logo-badge .hr-tag {
-      display: inline-block;
-      margin-top: 6px;
-      background: var(--green);
-      color: white;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      padding: 3px 12px;
-      border-radius: 20px;
-    }
-    .login-card {
-      background: var(--white);
-      width: 380px;
-      padding: 36px 36px 32px;
-      border-radius: 0 0 16px 16px;
-      box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
-      position: relative;
-      overflow: hidden;
-    }
-    .login-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--red), var(--orange), var(--green));
-    }
-    .card-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--dark);
-      text-align: center;
-      margin-bottom: 6px;
-    }
-    .card-sub {
-      font-size: 12.5px;
-      color: var(--muted);
-      text-align: center;
-      margin-bottom: 26px;
-    }
-    .divider { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; }
-    .divider-line { flex: 1; height: 1px; background: #e5e5e5; }
-    .login-card label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #555;
-      margin-bottom: 8px;
-    }
-    .input-wrap { position: relative; margin-bottom: 6px; }
-    input[type="password"], input[type="text"] {
-      width: 100%;
-      background: #fafafa;
-      border: 2px solid #e8e8e8;
-      border-radius: 10px;
-      color: var(--dark);
-      font-family: 'Sarabun', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      padding: 13px 48px 13px 16px;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      letter-spacing: 0.12em;
-    }
-    input:focus {
-      border-color: var(--red);
-      background: #fff;
-      box-shadow: 0 0 0 4px rgba(227,24,55,0.08);
-    }
-    input::placeholder { color: #ccc; font-weight: 400; letter-spacing: 0.05em; }
-    .eye-btn {
-      position: absolute; right: 14px; top: 50%;
-      transform: translateY(-50%);
-      background: none; border: none; cursor: pointer;
-      color: #bbb; padding: 4px;
-      transition: color 0.2s; display: flex; align-items: center;
-    }
-    .eye-btn:hover { color: var(--red); }
-    .error-msg {
-      font-size: 12px; color: var(--red);
-      min-height: 18px; margin-bottom: 20px;
-      text-align: left;
-    }
-    .btn {
-      display: block; width: 100%; padding: 15px;
-      background: var(--red); border: none; border-radius: 10px;
-      color: var(--white); font-family: 'Sarabun', sans-serif;
-      font-size: 15px; font-weight: 700; letter-spacing: 0.08em;
-      cursor: pointer; transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    }
-    .btn:hover { background: #c41330; box-shadow: 0 6px 20px rgba(227,24,55,0.4); transform: translateY(-1px); }
-    .btn:active { transform: scale(0.98); }
-    .btn.loading { pointer-events: none; opacity: 0.8; }
-    .footer-note { text-align: center; margin-top: 20px; font-size: 12px; color: #aaa; }
-    .footer-note strong { color: var(--green); }
-    @keyframes shake {
-      0%,100% { transform: translateX(0); }
-      20% { transform: translateX(-7px); }
-      40% { transform: translateX(7px); }
-      60% { transform: translateX(-4px); }
-      80% { transform: translateX(4px); }
-    }
-    .shake { animation: shake 0.35s ease; }
-    @keyframes flashGreen {
-      0% { background: var(--white); }
-      30% { background: #e8f9f0; }
-      100% { background: var(--white); }
-    }
-    .success-flash { animation: flashGreen 0.6s ease; }
-    .bottom-stripe { display: flex; width: 380px; margin-top: 16px; gap: 4px; }
-    .stripe-block { height: 5px; border-radius: 3px; flex: 1; animation: scaleIn 0.5s both; }
-    .stripe-block:nth-child(1) { background: var(--red);    animation-delay: 0.1s; }
-    .stripe-block:nth-child(2) { background: var(--green);  animation-delay: 0.2s; }
-    .stripe-block:nth-child(3) { background: var(--orange); animation-delay: 0.3s; }
-    @keyframes scaleIn { from { transform: scaleX(0); opacity:0; } to { transform: scaleX(1); opacity:1; } }
-
-    /* ── MAIN SECTION STYLES ── */
-    #main-section { display: none; }
     header {
       position: sticky; top: 0; z-index: 100;
       background: var(--red);
@@ -333,8 +169,6 @@
     .card:nth-child(7){animation-delay:.28s} .card:nth-child(8){animation-delay:.32s}
 
     @media(max-width:480px){
-      .login-card { width: 90%; }
-      .bottom-stripe { width: 90%; }
       .grid{grid-template-columns:1fr;}
       .badge,.vline{display:none;}
       .logo{font-size:32px;}
@@ -343,377 +177,284 @@
 </head>
 <body>
 
-  <!-- ============================== -->
-  <!-- 1. LOGIN SECTION               -->
-  <!-- ============================== -->
-  <div id="login-section">
-    <div class="topbar"></div>
-    <div class="wrapper">
-      <div class="logo-badge">
-        <div class="seven">7<span class="n">-</span>ELEVEn</div>
-        <div class="eleven">3447เขมราฐ</div>
-        <div class="hr-tag">HR CONNECT</div>
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">7<span>-</span>ELEVEn</div>
+      <div class="vline"></div>
+      <div class="site-name">
+        <div class="en">3447 Anirut Web</div>
+        <div class="th">ระบบจัดการภายในร้าน</div>
       </div>
-      <div class="login-card" id="card">
-        <div class="card-title">เข้าสู่ระบบด้วยรหัส HR</div>
-        <div class="card-sub">กรุณากรอกรหัสประจำตัวพนักงาน HR</div>
-        <div class="divider">
-          <div class="divider-line"></div>
-          <span>🔐</span>
-          <div class="divider-line"></div>
-        </div>
-        <label for="password">รหัสผ่าน HR</label>
-        <div class="input-wrap">
-          <input type="password" id="password" placeholder="กรอกรหัส HR ของท่าน" autocomplete="off"/>
-          <button class="eye-btn" type="button" onclick="togglePwd()" aria-label="แสดง/ซ่อน">
-            <svg id="eyeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-              <circle cx="12" cy="12" r="3"/>
-            </svg>
-          </button>
-        </div>
-        <div class="error-msg" id="errMsg"></div>
-        <button class="btn" id="loginBtn" onclick="handleLogin()">🏪 เข้าสู่ระบบ</button>
-        <div class="footer-note">สำหรับพนักงาน <strong>7-Eleven</strong> เท่านั้น<br/>ปัญหาการเข้าระบบ ติดต่อ ผจก.อนิรุทธิ์ 095-8904540</div>
-      </div>
-      <div class="bottom-stripe">
-        <div class="stripe-block"></div>
-        <div class="stripe-block"></div>
-        <div class="stripe-block"></div>
-      </div>
+      <div class="ml-auto"><div class="badge">HR PORTAL</div></div>
+    </div>
+    <div class="stripe"></div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>🏪 ยินดีต้อนรับ — สาขา 3447</h1>
+    <p>ระบบจัดการข้อมูลภายในร้าน 7-Eleven สำหรับพนักงานและผู้จัดการ</p>
+    <div class="hero-dots">
+      <div class="hero-dot"></div>
+      <div class="hero-dot"></div>
+      <div class="hero-dot"></div>
     </div>
   </div>
 
-  <!-- ============================== -->
-  <!-- 2. MAIN DASHBOARD SECTION      -->
-  <!-- ============================== -->
-  <div id="main-section">
-    <!-- HEADER -->
-    <header>
-      <div class="header-inner">
-        <div class="logo">7<span>-</span>ELEVEn</div>
-        <div class="vline"></div>
-        <div class="site-name">
-          <div class="en">3447 Anirut Web</div>
-          <div class="th">ระบบจัดการภายในร้าน</div>
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <!-- ── ส่วนที่ 1: งานขายและลูกค้า ── -->
+    <div class="sec-head">
+      <span class="sec-label red">💰 งานขาย &amp; ลูกค้า</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="grid">
+      <a href="https://docs.google.com/spreadsheets/d/1kVD6xilYrUf7E4JwYlHJ5w4fmpZC0aS4v9nmBtiJ02g/edit?usp=drivesdk"
+         target="_blank" class="card c-red">
+        <div class="ci">👤</div>
+        <div class="cb">
+          <div class="ct">แนะนำลูกค้าสมัคร All Member</div>
+          <div class="cd">บันทึกการแนะนำสมาชิก All</div>
         </div>
-        <div class="ml-auto"><div class="badge">HR PORTAL</div></div>
-      </div>
-      <div class="stripe"></div>
-    </header>
-
-    <!-- HERO -->
-    <div class="hero">
-      <h1>🏪 ยินดีต้อนรับ — สาขา 3447</h1>
-      <p>ระบบจัดการข้อมูลภายในร้าน 7-Eleven สำหรับพนักงานและผู้จัดการ</p>
-      <div class="hero-dots">
-        <div class="hero-dot"></div>
-        <div class="hero-dot"></div>
-        <div class="hero-dot"></div>
-      </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1D8013YL1K7lGJz_ZvO-Or12RUEKNL5wZeM4e9SjOGIo/edit?usp=drivesdk"
+         target="_blank" class="card c-orange">
+        <div class="ci">📊</div>
+        <div class="cb">
+          <div class="ct">สรุปยอดขาย All Online รายวัน</div>
+          <div class="cd">รายงานยอดขายออนไลน์ประจำวัน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%94%E0%B8%AD%E0%B8%99"
+         target="_blank" class="card c-yellow">
+        <div class="ci">📈</div>
+        <div class="cb">
+          <div class="ct">ยอดขายเดือน</div>
+          <div class="cd">สรุปยอดขายรายเดือน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/%E0%B8%AA%E0%B8%A3%E0%B8%B8%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B9%84%E0%B8%94"
+         target="_blank" class="card c-green">
+        <div class="ci">💵</div>
+        <div class="cb">
+          <div class="ct">สรุปรายได้</div>
+          <div class="cd">รายงานรายได้รวมของร้าน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+       <a href="https://docs.google.com/spreadsheets/d/1MfQySbV9yNH8rxgfrdOFFJanHTGn7WD5rZxygR6zA20/edit?gid=0#gid=0/edit?usp=drivesdk"
+         target="_blank" class="card c-green">
+        <div class="ci">🗂️</div>
+        <div class="cb">
+          <div class="ct">คีย์ยอดขายหัวหน้าผลัดดึก</div>
+          <div class="cd">หัวหน้าผลัดดึกคีย์ยอดขายทุกวัน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/125WZb_5OS2HpJDA-eyVhzxR8mrl4oqOqeeAt63CkVaM/edit?usp=drive_link"
+         target="_blank" class="card c-green">
+        <div class="ci">🫗</div>
+        <div class="cb">
+          <div class="ct">ตวงทิ้ง</div>
+          <div class="cd">กรอกลิงค์ทุกวัน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+    </div>  
+  
+    <!-- ── ส่วนที่ 2: เดลิเวอรี่ ── -->
+    <div class="sec-head">
+      <span class="sec-label orange">🛵 เดลิเวอรี่</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="grid">
+      <a href="https://docs.google.com/spreadsheets/d/1HnQj6FC8D65k4rMHNr6gADdTuT-kS6ueyQPLojR0oW0/edit?usp=sharing"
+         target="_blank" class="card c-orange">
+        <div class="ci">🛵</div>
+        <div class="cb">
+          <div class="ct">สรุป เดลิไรเดอร์ A</div>
+          <div class="cd">รายงานเดลิเวอรี่ไรเดอร์ทีม A</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1alLEfeDMwDV1KQDuZJ0l5tL4Ge67Juq5HAgi8XVrHDE/edit?usp=sharing"
+         target="_blank" class="card c-orange">
+        <div class="ci">🛵</div>
+        <div class="cb">
+          <div class="ct">สรุป เดลิไรเดอร์ B</div>
+          <div class="cd">รายงานเดลิเวอรี่ไรเดอร์ทีม B</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1vxRInz1qVwvqwKw0aQi3nLiIpCUG1MhYO4_z72WT8cI/edit?usp=drivesdk"
+         target="_blank" class="card c-red">
+        <div class="ci">🌙</div>
+        <div class="cb">
+          <div class="ct">เดลิเวอรี่ สั่งหลัง 20:00 น.</div>
+          <div class="cd">บันทึกออเดอร์ดึก</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-      <!-- ── ส่วนที่ 1: งานขายและลูกค้า ── -->
-      <div class="sec-head">
-        <span class="sec-label red">💰 งานขาย &amp; ลูกค้า</span>
-        <div class="sec-line"></div>
-      </div>
-      <div class="grid">
-        <a href="https://docs.google.com/spreadsheets/d/1kVD6xilYrUf7E4JwYlHJ5w4fmpZC0aS4v9nmBtiJ02g/edit?usp=drivesdk"
-           target="_blank" class="card c-red">
-          <div class="ci">👤</div>
-          <div class="cb">
-            <div class="ct">แนะนำลูกค้าสมัคร All Member</div>
-            <div class="cd">บันทึกการแนะนำสมาชิก All</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-        <a href="https://docs.google.com/spreadsheets/d/1D8013YL1K7lGJz_ZvO-Or12RUEKNL5wZeM4e9SjOGIo/edit?usp=drivesdk"
-           target="_blank" class="card c-orange">
-          <div class="ci">📊</div>
-          <div class="cb">
-            <div class="ct">สรุปยอดขาย All Online รายวัน</div>
-            <div class="cd">รายงานยอดขายออนไลน์ประจำวัน</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-        <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%94%E0%B8%AD%E0%B8%99"
-           target="_blank" class="card c-yellow">
-          <div class="ci">📈</div>
-          <div class="cb">
-            <div class="ct">ยอดขายเดือน</div>
-            <div class="cd">สรุปยอดขายรายเดือน</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-        <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/%E0%B8%AA%E0%B8%A3%E0%B8%B8%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B9%84%E0%B8%94"
-           target="_blank" class="card c-green">
-          <div class="ci">💵</div>
-          <div class="cb">
-            <div class="ct">สรุปรายได้</div>
-            <div class="cd">รายงานรายได้รวมของร้าน</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-      </div>
-
-      <!-- ── ส่วนที่ 2: เดลิเวอรี่ ── -->
-      <div class="sec-head">
-        <span class="sec-label orange">🛵 เดลิเวอรี่</span>
-        <div class="sec-line"></div>
-      </div>
-      <div class="grid">
-        <a href="https://docs.google.com/spreadsheets/d/1HnQj6FC8D65k4rMHNr6gADdTuT-kS6ueyQPLojR0oW0/edit?usp=sharing"
-           target="_blank" class="card c-orange">
-          <div class="ci">🛵</div>
-          <div class="cb">
-            <div class="ct">สรุป เดลิไรเดอร์ A</div>
-            <div class="cd">รายงานเดลิเวอรี่ไรเดอร์ทีม A</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-        <a href="https://docs.google.com/spreadsheets/d/1alLEfeDMwDV1KQDuZJ0l5tL4Ge67Juq5HAgi8XVrHDE/edit?usp=sharing"
-           target="_blank" class="card c-orange">
-          <div class="ci">🛵</div>
-          <div class="cb">
-            <div class="ct">สรุป เดลิไรเดอร์ B</div>
-            <div class="cd">รายงานเดลิเวอรี่ไรเดอร์ทีม B</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-        <a href="https://docs.google.com/spreadsheets/d/1vxRInz1qVwvqwKw0aQi3nLiIpCUG1MhYO4_z72WT8cI/edit?usp=drivesdk"
-           target="_blank" class="card c-red">
-          <div class="ci">🌙</div>
-          <div class="cb">
-            <div class="ct">เดลิเวอรี่ สั่งหลัง 20:00 น.</div>
-            <div class="cd">บันทึกออเดอร์ดึก</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-      </div>
-
-      <!-- ── ส่วนที่ 3: สินค้า / CN ── -->
-      <div class="sec-head">
-        <span class="sec-label green">📦 สินค้า &amp; CN</span>
-        <div class="sec-line"></div>
-      </div>
-      <div class="grid">
-        <a href="https://docs.google.com/spreadsheets/d/1IAAD3e4XYWZzyHuuK0bzLsrf_MEhrm5xnOyQhri48Zg/edit?usp=drivesdk"
-           target="_blank" class="card c-green">
-          <div class="ci">🥖</div>
-          <div class="cb">
-            <div class="ct">CN เลอแปง 13 SKU</div>
-            <div class="cd">ข้อมูล CN สินค้าเลอแปง 13 รายการ</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-        <a href="https://docs.google.com/spreadsheets/d/13iwKtGg9oTtq_dqP0j_gtupCATAoPGxgMFQmjIU7QTg/edit?usp=drivesdk"
-           target="_blank" class="card c-teal">
-          <div class="ci">🍞</div>
-          <div class="cb">
-            <div class="ct">CN ปังปอนเลอแปง</div>
-            <div class="cd">ข้อมูล CN ปังปอน</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-        <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/audit"
-           target="_blank" class="card c-blue">
-          <div class="ci">🔎</div>
-          <div class="cb">
-            <div class="ct">Audit</div>
-            <div class="cd">ตรวจสอบสินค้าและมาตรฐาน</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-      </div>
-
-      <!-- ── ส่วนที่ 4: HR & พนักงาน ── -->
-      <div class="sec-head">
-        <span class="sec-label red">👥 HR &amp; พนักงาน</span>
-        <div class="sec-line"></div>
-      </div>
-      <div class="grid">
-        <a href="https://idphrconnect.cpall.co.th/logon/LogonPoint/tmindex.html"
-           target="_blank" class="card c-red">
-          <div class="ci">🏢</div>
-          <div class="cb">
-            <div class="ct">HR Connect</div>
-            <div class="cd">ระบบเชื่อมต่อฝ่าย HR</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-          <a href="https://docs.google.com/spreadsheets/d/1oawPqCfvzQNt45lawLuxrVbjSWA1bVtiuzmbRy-NkcE/edit?usp=sharing"
-           target="_blank" class="card c-purple">
-          <div class="ci">🗓️</div>
-          <div class="cb">
-            <div class="ct">ตารางงานประจำสัปดาห์🆕</div>
-            <div class="cd">บันทึกการทำงานล่วงเวลา</div>
-          </div>
-          <div class="arr">›</div>
-        <a href="https://docs.google.com/spreadsheets/d/1JAKqdN6RDTyWi0XOWUnTH6gjbCpKcWxgv3ZUMMwcK34/edit?gid=1507304995#gid=1507304995"
-           target="_blank" class="card c-purple">
-          <div class="ci">⏰</div>
-          <div class="cb">
-            <div class="ct">OT พนักงาน</div>
-            <div class="cd">บันทึกการทำงานล่วงเวลา</div>
-          </div>
-          <div class="arr">›</div>
-                <a href="https://cpall.ekoapp.com/login"
-           target="_blank" class="card c-blue">
-          <div class="ci">🔗</div>
-          <div class="cb">
-            <div class="ct">CPALL Connect</div>
-            <div class="cd">ระบบเชื่อมต่อ CPALL</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-        </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScVj5GHq4pug9uyTzD4eCPFsqe1WjJONGUbaam7kBmDB-v48g/viewform"
-           target="_blank" class="card c-pink">
-          <div class="ci">💬</div>
-          <div class="cb">
-            <div class="ct">แสดงความคิดเห็นพนักงาน</div>
-            <div class="cd">แบบฟอร์มความคิดเห็นภายในร้าน</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-      </div>
-
-      <!-- ── ส่วนที่ 5: ความปลอดภัย & อื่นๆ ── -->
-      <div class="sec-head">
-        <span class="sec-label dark">🔐 ความปลอดภัย &amp; อื่นๆ</span>
-        <div class="sec-line"></div>
-      </div>
-      <div class="grid">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH7-WjC4TTwgINIojbdEp5Nl20Ua3jCfGXguxTBU3WitEPaA/viewform"
-           target="_blank" class="card c-blue">
-          <div class="ci">🔍</div>
-          <div class="cb">
-            <div class="ct">ค้นตัว—เข้า-ออกร้าน</div>
-            <div class="cd">บันทึกค้นตัว ฝากแบงค์</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-        <a href="https://docs.google.com/spreadsheets/d/1SjZC_sWcOjZpfQ2KitkpC6QInZ-F1nReAlP6OFKLpNI/edit?gid=1271066610#gid=1271066610"
-           target="_blank" class="card c-teal">
-          <div class="ci">📋</div>
-          <div class="cb">
-            <div class="ct">ตรวจสอบการค้นตัว</div>
-            <div class="cd">ดูประวัติการค้นตัวออกร้าน</div>
-          </div>
-          <div class="arr">›</div>
-            </a>
-        <a href="https://docs.google.com/spreadsheets/d/1nh3JJ2BALuOhsN19eJ09U2GT8KppwNF6OfEdIlTW0mE/edit?resourcekey=&gid=527036244#gid=527036244"
-           target="_blank" class="card c-teal">
-          <div class="ci">🗒</div>
-          <div class="cb">
-            <div class="ct">ตรวจสอบการค้นตัว</div>
-            <div class="cd">ดูประวัติการค้นตัวกลับเข้าร้าน</div>
-          </div>
-          <div class="arr">›</div>
-          
-        </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdgRwVZM6y78YKcr7MELa4dfHyqqKhk8ZrcouE1Zvd7GCqEcQ/viewform"
-           target="_blank" class="card c-yellow">
-          <div class="ci">☀️</div>
-          <div class="cb">
-            <div class="ct">จดมิเตอร์โซล่าเซลล์</div>
-            <div class="cd">บันทึกค่าไฟโซล่าเซลล์รายวัน</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-      </div>
-
-      <!-- ── ส่วนที่ 6: สำหรับผู้จัดการ ── -->
-      <div class="sec-head">
-        <span class="sec-label green">👔 สำหรับผู้จัดการ</span>
-        <div class="sec-line"></div>
-      </div>
-      <div class="grid">
-        <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/112539"
-           target="_blank" class="card c-green">
-          <div class="ci">🗂️</div>
-          <div class="cb">
-            <div class="ct">สำหรับ ผจก.</div>
-            <div class="cd">เมนูพิเศษสำหรับผู้จัดการร้าน</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-        <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/%E0%B8%95%E0%B8%94%E0%B8%95%E0%B8%AD-%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B8%96%E0%B8%B2%E0%B8%A1"
-           target="_blank" class="card c-teal">
-          <div class="ci">📞</div>
-          <div class="cb">
-            <div class="ct">ติดต่อ-สอบถาม</div>
-            <div class="cd">ช่องทางติดต่อภายในองค์กร</div>
-          </div>
-          <div class="arr">›</div>
-        </a>
-      </div>
+    <!-- ── ส่วนที่ 3: สินค้า / CN ── -->
+    <div class="sec-head">
+      <span class="sec-label green">📦 สินค้า &amp; CN</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="grid">
+  
+      <a href="https://docs.google.com/spreadsheets/d/13iwKtGg9oTtq_dqP0j_gtupCATAoPGxgMFQmjIU7QTg/edit?usp=drivesdk"
+         target="_blank" class="card c-teal">
+        <div class="ci">🍞</div>
+        <div class="cb">
+          <div class="ct">CN ปังปอนเลอแปง</div>
+          <div class="cd">ข้อมูล CN ปังปอน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/audit"
+         target="_blank" class="card c-blue">
+        <div class="ci">🔎</div>
+        <div class="cb">
+          <div class="ct">Audit</div>
+          <div class="cd">ตรวจสอบสินค้าและมาตรฐาน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
     </div>
 
-    <footer>
-      <strong>7-Eleven</strong> สาขา 3447 &nbsp;·&nbsp; ระบบจัดการภายใน &nbsp;·&nbsp; สำหรับพนักงานเท่านั้น
-    </footer>
+    <!-- ── ส่วนที่ 4: HR & พนักงาน ── -->
+    <div class="sec-head">
+      <span class="sec-label red">👥 HR &amp; พนักงาน</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="grid">
+      <a href="https://idphrconnect.cpall.co.th/logon/LogonPoint/tmindex.html"
+         target="_blank" class="card c-red">
+        <div class="ci">🏢</div>
+        <div class="cb">
+          <div class="ct">HR Connect</div>
+          <div class="cd">ระบบเชื่อมต่อฝ่าย HR</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1oawPqCfvzQNt45lawLuxrVbjSWA1bVtiuzmbRy-NkcE/edit?usp=sharing"
+         target="_blank" class="card c-purple">
+        <div class="ci">🗓️</div>
+        <div class="cb">
+          <div class="ct">ตารางงานประจำสัปดาห์🆕</div>
+          <div class="cd">ตารางการทำงานรายสัปดาห์</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1JAKqdN6RDTyWi0XOWUnTH6gjbCpKcWxgv3ZUMMwcK34/edit?gid=1507304995#gid=1507304995"
+         target="_blank" class="card c-purple">
+        <div class="ci">⏰</div>
+        <div class="cb">
+          <div class="ct">OT พนักงาน</div>
+          <div class="cd">บันทึกการทำงานล่วงเวลา</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://cpall.ekoapp.com/login"
+         target="_blank" class="card c-blue">
+        <div class="ci">🔗</div>
+        <div class="cb">
+          <div class="ct">CPALL Connect</div>
+          <div class="cd">ระบบเชื่อมต่อ CPALL</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScVj5GHq4pug9uyTzD4eCPFsqe1WjJONGUbaam7kBmDB-v48g/viewform"
+         target="_blank" class="card c-pink">
+        <div class="ci">💬</div>
+        <div class="cb">
+          <div class="ct">แสดงความคิดเห็นพนักงาน</div>
+          <div class="cd">แบบฟอร์มความคิดเห็นภายในร้าน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+    </div>
+
+    <!-- ── ส่วนที่ 5: ความปลอดภัย & อื่นๆ ── -->
+    <div class="sec-head">
+      <span class="sec-label dark">🔐 ความปลอดภัย &amp; อื่นๆ</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="grid">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc78MzikWneeM-jxVNA7IvD13tosQYFslQ2XHMMQw4YZQcxdA/viewform"
+         target="_blank" class="card c-blue">
+        <div class="ci">🔍</div>
+        <div class="cb">
+          <div class="ct">ค้นตัว—เข้า-ออกร้าน</div>
+          <div class="cd">บันทึกค้นตัว ฝากแบงค์</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1SjZC_sWcOjZpfQ2KitkpC6QInZ-F1nReAlP6OFKLpNI/edit?gid=1271066610#gid=1271066610"
+         target="_blank" class="card c-teal">
+        <div class="ci">📋</div>
+        <div class="cb">
+          <div class="ct">ตรวจสอบการค้นตัว</div>
+          <div class="cd">ดูประวัติการค้นตัวออกร้าน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1nh3JJ2BALuOhsN19eJ09U2GT8KppwNF6OfEdIlTW0mE/edit?resourcekey=&gid=527036244#gid=527036244"
+         target="_blank" class="card c-teal">
+        <div class="ci">🗒</div>
+        <div class="cb">
+          <div class="ct">ตรวจสอบการค้นตัว</div>
+          <div class="cd">ดูประวัติการค้นตัวกลับเข้าร้าน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdgRwVZM6y78YKcr7MELa4dfHyqqKhk8ZrcouE1Zvd7GCqEcQ/viewform"
+         target="_blank" class="card c-yellow">
+        <div class="ci">☀️</div>
+        <div class="cb">
+          <div class="ct">จดมิเตอร์โซล่าเซลล์</div>
+          <div class="cd">บันทึกค่าไฟโซล่าเซลล์รายวัน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+    </div>
+
+    <!-- ── ส่วนที่ 6: สำหรับผู้จัดการ ── -->
+    <div class="sec-head">
+      <span class="sec-label green">👔 สำหรับผู้จัดการ</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="grid">
+      <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/112539"
+         target="_blank" class="card c-green">
+        <div class="ci">🗂️</div>
+        <div class="cb">
+          <div class="ct">สำหรับ ผจก.</div>
+          <div class="cd">เมนูพิเศษสำหรับผู้จัดการร้าน</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+      <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/%E0%B8%95%E0%B8%94%E0%B8%95%E0%B8%AD-%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B8%96%E0%B8%B2%E0%B8%A1"
+         target="_blank" class="card c-teal">
+        <div class="ci">📞</div>
+        <div class="cb">
+          <div class="ct">ติดต่อ-สอบถาม</div>
+          <div class="cd">ช่องทางติดต่อภายในองค์กร</div>
+        </div>
+        <div class="arr">›</div>
+      </a>
+    </div>
   </div>
 
-  <script>
-    const VALID = ['7854632','7854680','7854628','7854731','7854673','7854783','7901525','7910023','7888910','7858936','7880477','7882823'];
+  <footer>
+    <strong>7-Eleven</strong> สาขา 3447 &nbsp;·&nbsp; ระบบจัดการภายใน &nbsp;·&nbsp; สำหรับพนักงานเท่านั้น จัดทำโดย ผจก.อนิรุทธิ์ สอนศรี ติดต่อ 095-8904540
+  </footer>
 
-    function togglePwd() {
-      const inp  = document.getElementById('password');
-      const icon = document.getElementById('eyeIcon');
-      if (inp.type === 'password') {
-        inp.type = 'text';
-        icon.innerHTML = `<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>`;
-      } else {
-        inp.type = 'password';
-        icon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>`;
-      }
-    }
-
-    function handleLogin() {
-      const pwd = document.getElementById('password').value.trim();
-      const err = document.getElementById('errMsg');
-      const card = document.getElementById('card');
-      const btn  = document.getElementById('loginBtn');
-      err.textContent = '';
-      
-      if (!pwd) {
-        err.innerHTML = '⚠️ กรุณากรอกรหัส HR';
-        card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake');
-        return;
-      }
-      
-      if (!VALID.includes(pwd)) {
-        err.innerHTML = '❌ รหัสไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง';
-        card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake');
-        document.getElementById('password').value = '';
-        return;
-      }
-      
-      card.classList.add('success-flash');
-      btn.textContent = '✅ เข้าสู่ระบบ...';
-      btn.classList.add('loading');
-
-      // บันทึกข้อมูลลง Google Sheets ผ่าน GET (bypass CORS)
-      const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxMfrnpgGGbxrt8XbmsFA5xdImbUHyCxM3mHYvUA_g9e3tlo-n9_stm_7odH8qyAvY3/exec';
-      const params = new URLSearchParams({ hrCode: pwd, userAgent: navigator.userAgent });
-      const img = new Image();
-      img.src = SHEET_URL + '?' + params.toString();
-
-      // สลับหน้าจอหลังจากผ่านไป 0.8 วินาที
-      setTimeout(() => { 
-        document.getElementById('login-section').style.display = 'none';
-        document.getElementById('main-section').style.display = 'block';
-        window.scrollTo(0, 0);
-      }, 800);
-    }
-
-    document.getElementById('password').addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); });
-    document.getElementById('password').addEventListener('input', () => { document.getElementById('errMsg').textContent = ''; });
-  </script>
 </body>
 </html>
