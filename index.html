@@ -1,460 +1,333 @@
-
-
-
-      
-
- 
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>3447 Anirut — 7-Eleven HR Portal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --red:    #e31837;
-      --green:  #007b40;
-      --orange: #f47920;
-      --yellow: #ffd700;
-      --stripe: #ffd700;
-      --white:  #ffffff;
-      --light:  #f2f2ed;
-      --dark:   #1c1c1c;
-      --muted:  #888;
-    }
-    body {
-      min-height: 100vh;
-      background: var(--light);
-      font-family: 'Sarabun', sans-serif;
-      position: relative;
-    }
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background: repeating-linear-gradient(-45deg,transparent,transparent 36px,rgba(227,24,55,0.03) 36px,rgba(227,24,55,0.03) 38px);
-      pointer-events: none; z-index: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7-Eleven 03447 เขมราฐ</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; -webkit-tap-highlight-color: transparent; }
+body { background: #f0f0f0; }
 
-    header {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--red);
-      box-shadow: 0 4px 20px rgba(227,24,55,0.4);
-    }
-    .stripe {
-      height: 6px;
-      background: linear-gradient(90deg, var(--green) 33%, var(--yellow) 33% 66%, var(--orange) 66%);
-    }
-    .header-inner {
-      max-width: 960px; margin: 0 auto;
-      padding: 10px 20px;
-      display: flex; align-items: center; gap: 14px;
-    }
-    .logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 40px; line-height: 1;
-      color: #fff;
-      letter-spacing: -1px;
-      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
-    }
-    .logo span { color: var(--yellow); }
-    .vline { width: 2px; height: 38px; background: rgba(255,255,255,0.25); border-radius: 2px; }
-    .site-name { color: #fff; }
-    .site-name .en { font-size: 16px; font-weight: 700; letter-spacing: 0.04em; }
-    .site-name .th { font-size: 11px; opacity: 0.75; letter-spacing: 0.08em; text-transform: uppercase; }
-    .ml-auto { margin-left: auto; }
-    .badge {
-      background: var(--green); color: #fff;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
-      padding: 4px 12px; border-radius: 20px;
-    }
+/* ===== HEADER ===== */
+.header { background: #E31837; padding: 1.4rem 1.2rem 0; }
+.top-row { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
+.brand-main { display: flex; align-items: center; gap: 8px; }
+.seven-num { font-size: 52px; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -2px; }
+.divv { width: 1.5px; height: 42px; background: rgba(255,255,255,0.3); align-self: center; margin: 0 4px; }
+.eleven { display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 6px; gap: 1px; }
+.eleven-top { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 3px; line-height: 1; }
+.eleven-bot { font-size: 19px; font-weight: 700; color: #fff; letter-spacing: 2px; line-height: 1; }
+.branch-info { display: flex; flex-direction: column; justify-content: center; gap: 3px; }
+.branch-code { font-size: 22px; font-weight: 900; color: #F7A800; line-height: 1; }
+.branch-name { font-size: 10px; color: rgba(255,255,255,0.75); letter-spacing: .3px; line-height: 1.4; max-width: 120px; }
+.clock-box { text-align: right; }
+.ctime { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 1px; line-height: 1; }
+.cdate { font-size: 10px; color: rgba(255,255,255,0.65); margin-top: 3px; }
+.cday { font-size: 9px; background: rgba(255,255,255,0.15); color: #fff; padding: 2px 7px; border-radius: 20px; display: inline-block; margin-top: 4px; letter-spacing: .5px; }
 
-    .hero {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-      padding: 28px 20px;
-      text-align: center;
-      position: relative; overflow: hidden; z-index: 1;
-    }
-    .hero::before {
-      content: '7';
-      position: absolute; top: -20px; right: 20px;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 200px; color: rgba(255,255,255,0.03); line-height: 1;
-      pointer-events: none;
-    }
-    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #fff; letter-spacing: 0.12em; }
-    .hero p  { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 4px; letter-spacing: 0.05em; }
-    .hero-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
-    .hero-dot { width: 28px; height: 4px; border-radius: 2px; }
-    .hero-dot:nth-child(1) { background: var(--red); }
-    .hero-dot:nth-child(2) { background: var(--green); }
-    .hero-dot:nth-child(3) { background: var(--orange); }
+.tagline-row { background: #C41230; padding: .55rem 1.2rem; display: flex; align-items: center; justify-content: space-between; }
+.tagline-left { display: flex; align-items: center; gap: 7px; }
+.pulse-dot { width: 7px; height: 7px; border-radius: 50%; background: #F7A800; animation: p 1.8s infinite; }
+@keyframes p { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .4; transform: scale(.7); } }
+.tagline-text { font-size: 11px; color: rgba(255,255,255,0.9); letter-spacing: .5px; font-weight: 500; }
+.tagline-right { font-size: 10px; color: rgba(255,255,255,0.45); letter-spacing: .5px; }
 
-    .main-content { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 28px 16px 60px; }
+.green-bar { background: #006241; padding: .5rem 1.2rem; display: flex; align-items: center; gap: 8px; }
+.strip-label { font-size: 11px; font-weight: 700; color: #fff; letter-spacing: .8px; text-transform: uppercase; }
+.strip-sep { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.4); margin: 0 2px; }
+.strip-sub { font-size: 10px; color: rgba(255,255,255,0.6); }
+.strip-r { margin-left: auto; display: flex; gap: 4px; }
+.sdot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.3); }
+.sdot.on { background: #F7A800; }
 
-    .sec-head {
-      display: flex; align-items: center; gap: 10px;
-      margin-bottom: 14px; margin-top: 28px;
-      animation: fadeUp 0.5s both;
-    }
-    .sec-head:first-child { margin-top: 0; }
-    .sec-line { flex: 1; height: 2px; background: linear-gradient(90deg, currentColor, transparent); border-radius: 2px; }
-    .sec-label {
-      font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
-      padding: 3px 12px; border-radius: 20px; white-space: nowrap;
-    }
-    .sec-label.red    { color: var(--red);    background: #fff0f2; }
-    .sec-label.red + .sec-line    { color: var(--red); }
-    .sec-label.green  { color: var(--green);  background: #e8f8f0; }
-    .sec-label.green + .sec-line  { color: var(--green); }
-    .sec-label.orange { color: var(--orange); background: #fff4ec; }
-    .sec-label.orange + .sec-line { color: var(--orange); }
-    .sec-label.dark   { color: #555;          background: #ebebeb; }
-    .sec-label.dark + .sec-line   { color: #ccc; }
+/* ===== BODY ===== */
+.body { padding: .9rem .85rem; display: flex; flex-direction: column; gap: 1rem; }
+.sec-label { font-size: 10px; font-weight: 700; color: #aaa; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: .6rem; padding-left: 2px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; margin-bottom: 8px; }
+.mcard { background: #fff; border-radius: 16px; padding: 1rem .95rem; text-decoration: none; display: flex; flex-direction: column; gap: .6rem; cursor: pointer; transition: transform .13s; border: 1px solid rgba(0,0,0,0.06); }
+.mcard:active { transform: scale(0.95); }
+.mcard-icon { width: 44px; height: 44px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+.ic-red    { background: #FEECEC; }
+.ic-blue   { background: #EBF5FB; }
+.ic-amber  { background: #FEF9E7; }
+.ic-purple { background: #F4ECF7; }
+.ic-green  { background: #E9F7EF; }
+.ic-coral  { background: #FDEDEC; }
+.ic-teal   { background: #E8F8F5; }
+.mcard-title { font-size: 13px; font-weight: 700; color: #1a1a1a; line-height: 1.3; }
+.mcard-sub   { font-size: 10.5px; color: #999; line-height: 1.3; }
+.mcard-arrow { margin-top: auto; font-size: 11px; color: #ccc; text-align: right; }
 
-    .card {
-      display: flex; align-items: center; gap: 14px;
-      background: #fff; border: 2px solid #eee; border-radius: 14px;
-      padding: 16px 18px; text-decoration: none; color: var(--dark);
-      position: relative; overflow: hidden;
-      transition: border-color .2s, transform .2s, box-shadow .2s;
-      animation: fadeUp .45s both;
-    }
-    .card::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-      background: var(--c, var(--red)); border-radius: 14px 0 0 14px;
-      transition: width .2s;
-    }
-    .card:hover { border-color: var(--c, var(--red)); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.09); }
-    .card:hover::before { width: 6px; }
-    .card:active { transform: translateY(-1px) scale(0.99); }
-    .ci {
-      width: 46px; height: 46px; border-radius: 12px;
-      background: var(--ibg, #fff0f2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; flex-shrink: 0;
-      transition: transform .2s;
-    }
-    .card:hover .ci { transform: scale(1.1) rotate(-5deg); }
-    .cb { flex: 1; min-width: 0; }
-    .ct { font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px; }
-    .cd { font-size: 11.5px; color: var(--muted); }
-    .arr { color: #ccc; font-size: 20px; flex-shrink: 0; transition: color .2s, transform .2s; }
-    .card:hover .arr { color: var(--c, var(--red)); transform: translateX(4px); }
+.fullrow { background: #fff; border-radius: 16px; padding: .9rem 1rem; text-decoration: none; display: flex; align-items: center; gap: .85rem; cursor: pointer; transition: transform .13s; border: 1px solid rgba(0,0,0,0.06); }
+.fullrow:active { transform: scale(0.97); }
+.row-icon  { width: 44px; height: 44px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.row-text  { flex: 1; }
+.row-title { font-size: 13px; font-weight: 700; color: #1a1a1a; }
+.row-sub   { font-size: 11px; color: #999; margin-top: 2px; }
+.row-arr   { font-size: 20px; color: #ddd; font-weight: 300; }
 
-    .c-red    { --c: #e31837; --ibg: #fff0f2; }
-    .c-green  { --c: #007b40; --ibg: #e8f8f0; }
-    .c-orange { --c: #f47920; --ibg: #fff4ec; }
-    .c-blue   { --c: #2563eb; --ibg: #eff6ff; }
-    .c-purple { --c: #7c3aed; --ibg: #f5f3ff; }
-    .c-teal   { --c: #0d9488; --ibg: #f0fdfa; }
-    .c-yellow { --c: #d97706; --ibg: #fffbeb; }
-    .c-pink   { --c: #db2777; --ibg: #fdf2f8; }
-
-    footer {
-      position: relative; z-index: 1;
-      background: #1c1c1c; color: rgba(255,255,255,0.45);
-      text-align: center; padding: 18px; font-size: 12px; letter-spacing: 0.05em;
-    }
-    footer strong { color: var(--red); }
-
-    @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
-    .card:nth-child(1){animation-delay:.04s} .card:nth-child(2){animation-delay:.08s}
-    .card:nth-child(3){animation-delay:.12s} .card:nth-child(4){animation-delay:.16s}
-    .card:nth-child(5){animation-delay:.20s} .card:nth-child(6){animation-delay:.24s}
-    .card:nth-child(7){animation-delay:.28s} .card:nth-child(8){animation-delay:.32s}
-
-    @media(max-width:480px){
-      .grid{grid-template-columns:1fr;}
-      .badge,.vline{display:none;}
-      .logo{font-size:32px;}
-    }
-  </style>
+/* ===== FOOTER ===== */
+.footer { margin: .3rem .85rem 1.4rem; background: #fff; border-radius: 16px; border: 1px solid rgba(0,0,0,0.06); padding: .9rem 1rem; display: flex; align-items: center; justify-content: space-between; }
+.fb   { display: flex; align-items: center; gap: 5px; }
+.fd1  { width: 8px; height: 8px; border-radius: 50%; background: #E31837; }
+.fd2  { width: 8px; height: 8px; border-radius: 50%; background: #F7A800; }
+.fd3  { width: 8px; height: 8px; border-radius: 50%; background: #006241; }
+.fname { font-size: 12px; font-weight: 700; color: #1a1a1a; margin-left: 5px; }
+.fsub  { font-size: 10px; color: #aaa; margin-top: 1px; }
+</style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <div class="logo">7<span>-</span>ELEVEn</div>
-      <div class="vline"></div>
-      <div class="site-name">
-        <div class="en">3447 Anirut Web</div>
-        <div class="th">ระบบจัดการภายในร้าน</div>
+<!-- HEADER -->
+<div class="header">
+  <div class="top-row">
+    <div class="brand-main">
+      <span class="seven-num">7</span>
+      <div class="divv"></div>
+      <div class="eleven">
+        <span class="eleven-top">ELEVEN</span>
+        <span class="eleven-bot">03447</span>
       </div>
-      <div class="ml-auto"><div class="badge">HR PORTAL</div></div>
+      <div class="divv"></div>
+      <div class="branch-info">
+        <span class="branch-code">เขมราฐ</span>
+        <span class="branch-name">เขมราฐ</span>
+      </div>
     </div>
-    <div class="stripe"></div>
-  </header>
+    <div class="clock-box">
+      <div class="ctime" id="ct">--:--</div>
+      <div class="cdate" id="cd">---</div>
+      <div class="cday"  id="cdy">---</div>
+    </div>
+  </div>
+</div>
+<div class="tagline-row">
+  <div class="tagline-left">
+    <div class="pulse-dot"></div>
+    <span class="tagline-text">ระบบจัดการร้าน</span>
+  </div>
+  <span class="tagline-right">ผู้สร้าง ผจก.อนิรุทธิ์ สอนศรี 095-8904540</span>
+</div>
+<div class="green-bar">
+  <span style="font-size:12px">🟢</span>
+  <span class="strip-label">Open</span>
+  <div class="strip-sep"></div>
+  <span class="strip-sub">เปิดให้บริการ 24 ชั่วโมง ทุกวัน</span>
+  <div class="strip-r">
+    <div class="sdot on"></div>
+    <div class="sdot on"></div>
+    <div class="sdot"></div>
+  </div>
+</div>
+<marquee direction="left"> ห้ามลืมกรอกข้อมูลทุกครั้งครับ เว็บไซต์นี้ใช้สำหรับสาขาเท่านั่น สำรวบรวบรวมงาน ห้ามนำข้อมูลเผยแพร่แก่บุคคลภายนอกเด็ดขาด!</marquee>
 
-  <!-- HERO -->
-  <div class="hero">
-    <h1>🏪 ยินดีต้อนรับ — สาขา 3447</h1>
-    <p>ระบบจัดการข้อมูลภายในร้าน 7-Eleven สำหรับพนักงานและผู้จัดการ</p>
-    <div class="hero-dots">
-      <div class="hero-dot"></div>
-      <div class="hero-dot"></div>
-      <div class="hero-dot"></div>
+<!-- BODY -->
+<div class="body">
+
+  <div>
+    <div class="sec-label">เมนูหลัก</div>
+    <div class="grid2">
+
+      <a class="mcard" href="https://docs.google.com/spreadsheets/d/1kVD6xilYrUf7E4JwYlHJ5w4fmpZC0aS4v9nmBtiJ02g/edit?usp=drive_link" target="_blank">
+        <div class="mcard-icon ic-red">👤</div>
+        <div>
+          <div class="mcard-title">All Member</div>
+          <div class="mcard-sub">แนะนำลูกค้าสมัคร ห้ามลืมกรอกข้อมูลทุกครั้งที่มีการแนะนำ</div>
+        </div>
+        <div class="mcard-arrow">›</div>
+      </a>
+
+      <a class="mcard" href="https://docs.google.com/spreadsheets/d/1D8013YL1K7lGJz_ZvO-Or12RUEKNL5wZeM4e9SjOGIo/edit?usp=drive_link" target="_blank">
+        <div class="mcard-icon ic-blue">📊</div>
+        <div>
+          <div class="mcard-title">บันทึกยอดขาย Onlineประจำวัน</div>
+          <div class="mcard-sub">บันทึก All Online </div>
+        </div>
+        <div class="mcard-arrow">›</div>
+      </a>
+
+      <a class="mcard" href="https://docs.google.com/spreadsheets/d/13iwKtGg9oTtq_dqP0j_gtupCATAoPGxgMFQmjIU7QTg/edit?usp=drive_link" target="_blank">
+        <div class="mcard-icon ic-amber">✂️</div>
+        <div>
+          <div class="mcard-title">บันทึก CN ปังปอน 480g/240g</div>
+          <div class="mcard-sub">ห้ามลืมอัพเดทข้อมูลให้ ผจก.ทุกวันถ้ามี CN</div>
+        </div>
+        <div class="mcard-arrow">›</div>
+      </a>
+
+      <a class="mcard" href="https://docs.google.com/spreadsheets/d/1oawPqCfvzQNt45lawLuxrVbjSWA1bVtiuzmbRy-NkcE/edit?usp=drive_link" target="_blank">
+        <div class="mcard-icon ic-purple">📅</div>
+        <div>
+          <div class="mcard-title">ตารางการทำงาน🆕</div>
+          <div class="mcard-sub">อัพเดทข้อมูลรายสัปดาห์</div>
+        </div>
+        <div class="mcard-arrow">›</div>
+      </a>
+            <a class="mcard" href="https://docs.google.com/spreadsheets/d/1MfQySbV9yNH8rxgfrdOFFJanHTGn7WD5rZxygR6zA20/edit?usp=sharing" target="_blank">
+        <div class="mcard-icon ic-purple">📝</div>
+        <div>
+          <div class="mcard-title">คีย์ยอดขายหัวหน้าผลัดดึก</div>
+          <div class="mcard-sub">หัวหน้าผลัดดึกคีย์ยอดขายทุกวัน ส่งFC</div>
+        </div>
+        <div class="mcard-arrow">›</div>
+      </a>
+       <a class="mcard" href="https://docs.google.com/spreadsheets/d/1MfQySbV9yNH8rxgfrdOFFJanHTGn7WD5rZxygR6zA20/edit?usp=sharing" target="_blank">
+        <div class="mcard-icon ic-purple">📑</div>
+        <div>
+          <div class="mcard-title">💸คีย์ยอดจ่ายพร้อมเพย์หัวหน้าผลัดดึก</div>
+          <div class="mcard-sub">หัวหน้าผลัดดึกคีย์ยอดทุกวัน ส่งFC</div>
+        </div>
+        <div class="mcard-arrow">›</div>
+      </a>
+        <a class="mcard" href="https://docs.google.com/spreadsheets/d/1HEVJDo_vevL9N67_B4SCUcFgqC4l7tCF6E3U5mGb6ho/edit?usp=drive_link" target="_blank">
+        <div class="mcard-icon ic-purple">📊</div>
+        <div>
+          <div class="mcard-title">ยอดขายเดือน</div>
+          <div class="mcard-sub">ตารางยอดขายเดือน</div>
+        </div>
+        <div class="mcard-arrow">›</div>
+       </a>
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <div class="main-content">
-    <!-- ── ส่วนที่ 1: งานขายและลูกค้า ── -->
-    <div class="sec-head">
-      <span class="sec-label red">💰 งานขาย &amp; ลูกค้า</span>
-      <div class="sec-line"></div>
-    </div>
-    <div class="grid">
-      <a href="https://docs.google.com/spreadsheets/d/1kVD6xilYrUf7E4JwYlHJ5w4fmpZC0aS4v9nmBtiJ02g/edit?usp=drivesdk"
-         target="_blank" class="card c-red">
-        <div class="ci">👤</div>
-        <div class="cb">
-          <div class="ct">แนะนำลูกค้าสมัคร All Member</div>
-          <div class="cd">บันทึกการแนะนำสมาชิก All</div>
+  <div>
+    <div class="sec-label">บันทึกประจำวัน</div>
+    <div style="display:flex; flex-direction:column; gap:.55rem">
+    
+    <a class="fullrow" href="https://docs.google.com/spreadsheets/d/125WZb_5OS2HpJDA-eyVhzxR8mrl4oqOqeeAt63CkVaM/edit?usp=drive_link" target="_blank">
+        <div class="row-icon ic-green">🫗</div>
+        <div class="row-text">
+          <div class="row-title">ตวงทิ้ง</div>
+          <div class="row-sub">กรอกลิงค์ทุกวัน</div>
         </div>
-        <div class="arr">›</div>
+        <span class="row-arr">›</span>
       </a>
-      <a href="https://docs.google.com/spreadsheets/d/1D8013YL1K7lGJz_ZvO-Or12RUEKNL5wZeM4e9SjOGIo/edit?usp=drivesdk"
-         target="_blank" class="card c-orange">
-        <div class="ci">📊</div>
-        <div class="cb">
-          <div class="ct">สรุปยอดขาย All Online รายวัน</div>
-          <div class="cd">รายงานยอดขายออนไลน์ประจำวัน</div>
+      <a class="fullrow" href="https://docs.google.com/forms/d/e/1FAIpQLSc78MzikWneeM-jxVNA7IvD13tosQYFslQ2XHMMQw4YZQcxdA/viewform" target="_blank">
+        <div class="row-icon ic-green">📝</div>
+        <div class="row-text">
+          <div class="row-title">ค้นตัว เข้า-ออกร้าน</div>
+          <div class="row-sub">กรอกฟอร์มประจำวัน🔍</div>
         </div>
-        <div class="arr">›</div>
+        <span class="row-arr">›</span>
       </a>
-      <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%94%E0%B8%AD%E0%B8%99"
-         target="_blank" class="card c-yellow">
-        <div class="ci">📈</div>
-        <div class="cb">
-          <div class="ct">ยอดขายเดือน</div>
-          <div class="cd">สรุปยอดขายรายเดือน</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-      <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/%E0%B8%AA%E0%B8%A3%E0%B8%B8%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B9%84%E0%B8%94"
-         target="_blank" class="card c-green">
-        <div class="ci">💵</div>
-        <div class="cb">
-          <div class="ct">สรุปรายได้</div>
-          <div class="cd">รายงานรายได้รวมของร้าน</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-       <a href="https://docs.google.com/spreadsheets/d/1MfQySbV9yNH8rxgfrdOFFJanHTGn7WD5rZxygR6zA20/edit?gid=0#gid=0/edit?usp=drivesdk"
-         target="_blank" class="card c-green">
-        <div class="ci">🗂️</div>
-        <div class="cb">
-          <div class="ct">คีย์ยอดขายหัวหน้าผลัดดึก</div>
-          <div class="cd">หัวหน้าผลัดดึกคีย์ยอดขายทุกวัน</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-      <a href="https://docs.google.com/spreadsheets/d/125WZb_5OS2HpJDA-eyVhzxR8mrl4oqOqeeAt63CkVaM/edit?usp=drive_link"
-         target="_blank" class="card c-green">
-        <div class="ci">🫗</div>
-        <div class="cb">
-          <div class="ct">ตวงทิ้ง</div>
-          <div class="cd">กรอกลิงค์ทุกวัน</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-    </div>  
-  
-    <!-- ── ส่วนที่ 2: เดลิเวอรี่ ── -->
-    <div class="sec-head">
-      <span class="sec-label orange">🛵 เดลิเวอรี่</span>
-      <div class="sec-line"></div>
-    </div>
-    <div class="grid">
-      <a href="https://docs.google.com/spreadsheets/d/1HnQj6FC8D65k4rMHNr6gADdTuT-kS6ueyQPLojR0oW0/edit?usp=sharing"
-         target="_blank" class="card c-orange">
-        <div class="ci">🛵</div>
-        <div class="cb">
-          <div class="ct">สรุป เดลิไรเดอร์ A</div>
-          <div class="cd">รายงานเดลิเวอรี่ไรเดอร์ทีม A</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-      <a href="https://docs.google.com/spreadsheets/d/1alLEfeDMwDV1KQDuZJ0l5tL4Ge67Juq5HAgi8XVrHDE/edit?usp=sharing"
-         target="_blank" class="card c-orange">
-        <div class="ci">🛵</div>
-        <div class="cb">
-          <div class="ct">สรุป เดลิไรเดอร์ B</div>
-          <div class="cd">รายงานเดลิเวอรี่ไรเดอร์ทีม B</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-      <a href="https://docs.google.com/spreadsheets/d/1vxRInz1qVwvqwKw0aQi3nLiIpCUG1MhYO4_z72WT8cI/edit?usp=drivesdk"
-         target="_blank" class="card c-red">
-        <div class="ci">🌙</div>
-        <div class="cb">
-          <div class="ct">เดลิเวอรี่ สั่งหลัง 20:00 น.</div>
-          <div class="cd">บันทึกออเดอร์ดึก</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-    </div>
 
-    <!-- ── ส่วนที่ 3: สินค้า / CN ── -->
-    <div class="sec-head">
-      <span class="sec-label green">📦 สินค้า &amp; CN</span>
-      <div class="sec-line"></div>
-    </div>
-    <div class="grid">
-  
-      <a href="https://docs.google.com/spreadsheets/d/13iwKtGg9oTtq_dqP0j_gtupCATAoPGxgMFQmjIU7QTg/edit?usp=drivesdk"
-         target="_blank" class="card c-teal">
-        <div class="ci">🍞</div>
-        <div class="cb">
-          <div class="ct">CN ปังปอนเลอแปง</div>
-          <div class="cd">ข้อมูล CN ปังปอน</div>
+      <a class="fullrow" href="https://docs.google.com/spreadsheets/d/1HnQj6FC8D65k4rMHNr6gADdTuT-kS6ueyQPLojR0oW0/edit?usp=drive_link" target="_blank">
+        <div class="row-icon ic-coral">🛵</div>
+        <div class="row-text">
+          <div class="row-title">บันทึกการวิ่งไรเดอร์ A</div>
+          <div class="row-sub">ติดตามรอบจัดส่ง อัพเดทข้อมูลโดย ผู้จัดการ</div>
         </div>
-        <div class="arr">›</div>
+        <span class="row-arr">›</span>
       </a>
-      <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/audit"
-         target="_blank" class="card c-blue">
-        <div class="ci">🔎</div>
-        <div class="cb">
-          <div class="ct">Audit</div>
-          <div class="cd">ตรวจสอบสินค้าและมาตรฐาน</div>
+            <a class="fullrow" href="https://docs.google.com/spreadsheets/d/1alLEfeDMwDV1KQDuZJ0l5tL4Ge67Juq5HAgi8XVrHDE/edit?usp=drive_link" target="_blank">
+        <div class="row-icon ic-coral">🛵</div>
+        <div class="row-text">
+          <div class="row-title">บันทึกการวิ่งไรเดอร์ B</div>
+          <div class="row-sub">ติดตามรอบจัดส่ง อัพเดทข้อมูลโดย ผู้จัดการ </div>
         </div>
-        <div class="arr">›</div>
+        <span class="row-arr">›</span>
       </a>
-    </div>
+       <a class="fullrow" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRwVZM6y78YKcr7MELa4dfHyqqKhk8ZrcouE1Zvd7GCqEcQ/viewform" target="_blank">
+        <div class="row-icon ic-coral">⛅</div>
+        <div class="row-text">
+          <div class="row-title">จดมิเตอร์โซล่าเซล์</div>
+          <div class="row-sub">บันทึกจดมิเตอร์โซล่าเซลล์รายเดือน</div>
+        </div>
+        <span class="row-arr">›</span>
+      </a>
+      <a class="fullrow" href="https://docs.google.com/spreadsheets/d/1FSE6sF_jmVNa8ijJ0MybAcEo4T3nR_XijBE83z_JY4s/edit?usp=drive_link" target="_blank">
+        <div class="row-icon ic-coral">💵</div>
+        <div class="row-text">
+          <div class="row-title">สรุปรายได้</div>
+          <div class="row-sub">สรุปรายได้พนักงาน</div>
+        </div>
+        <span class="row-arr">›</span>
+      </a>
+      <a class="fullrow" href="https://ess.hrconnect.cpall.co.th/"target="_blank">
+        <div class="row-icon ic-coral">🏢</div>
+        <div class="row-text">
+          <div class="row-title">HR-CONNECT</div>
+          <div class="row-sub">ระบบเชื่อต่อฝ่าย HR</div>
+        </div>
+        <span class="row-arr">›</span>
+      </a>
+      <a class="fullrow" href="https://cpall.ekoapp.com/login" target="_blank">
+        <div class="row-icon ic-coral">🗺️</div>
+        <div class="row-text">
+          <div class="row-title">CPLL-CONNECT</div>
+          <div class="row-sub">ระบบข่าวสารสำนักงานใหญ่</div>
+        </div>
+        <span class="row-arr">›</span>
+      </a>
 
-    <!-- ── ส่วนที่ 4: HR & พนักงาน ── -->
-    <div class="sec-head">
-      <span class="sec-label red">👥 HR &amp; พนักงาน</span>
-      <div class="sec-line"></div>
-    </div>
-    <div class="grid">
-      <a href="https://idphrconnect.cpall.co.th/logon/LogonPoint/tmindex.html"
-         target="_blank" class="card c-red">
-        <div class="ci">🏢</div>
-        <div class="cb">
-          <div class="ct">HR Connect</div>
-          <div class="cd">ระบบเชื่อมต่อฝ่าย HR</div>
+      <a class="fullrow" href="https://sites.google.com/view/anirutweb02/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81" target="_blank">
+        <div class="row-icon ic-teal">🕵️</div>
+        <div class="row-text">
+          <div class="row-title">โพเสจ QSSI</div>
+          <div class="row-sub">รวมคำถาม-ตอบQSSI</div>
         </div>
-        <div class="arr">›</div>
+        <span class="row-arr">›</span>
       </a>
-      <a href="https://docs.google.com/spreadsheets/d/1oawPqCfvzQNt45lawLuxrVbjSWA1bVtiuzmbRy-NkcE/edit?usp=sharing"
-         target="_blank" class="card c-purple">
-        <div class="ci">🗓️</div>
-        <div class="cb">
-          <div class="ct">ตารางงานประจำสัปดาห์🆕</div>
-          <div class="cd">ตารางการทำงานรายสัปดาห์</div>
+      <a class="fullrow" href="https://docs.google.com/spreadsheets/d/1SjZC_sWcOjZpfQ2KitkpC6QInZ-F1nReAlP6OFKLpNI/edit?gid=1271066610#gid=1271066610" target="_blank">
+        <div class="row-icon ic-teal">📤</div>
+        <div class="row-text">
+          <div class="row-title">ตรวจสอบการค้นตัว-ออก</div>
+          <div class="row-sub">ตรวจสอบค้นตัวออกร้าน</div>
         </div>
-        <div class="arr">›</div>
+        <span class="row-arr">›</span>
       </a>
-      <a href="https://docs.google.com/spreadsheets/d/1JAKqdN6RDTyWi0XOWUnTH6gjbCpKcWxgv3ZUMMwcK34/edit?gid=1507304995#gid=1507304995"
-         target="_blank" class="card c-purple">
-        <div class="ci">⏰</div>
-        <div class="cb">
-          <div class="ct">OT พนักงาน</div>
-          <div class="cd">บันทึกการทำงานล่วงเวลา</div>
+      <a class="fullrow" href="https://docs.google.com/spreadsheets/d/1SjZC_sWcOjZpfQ2KitkpC6QInZ-F1nReAlP6OFKLpNI/edit?gid=1271066610#gid=1271066610" target="_blank">
+        <div class="row-icon ic-teal">📥</div>
+        <div class="row-text">
+          <div class="row-title">ตรวจสอบการค้นตัว-เข้า</div>
+          <div class="row-sub">ตรวจสอบค้นตัวเข้าร้าน</div>
         </div>
-        <div class="arr">›</div>
+        <span class="row-arr">›</span>
       </a>
-      <a href="https://cpall.ekoapp.com/login"
-         target="_blank" class="card c-blue">
-        <div class="ci">🔗</div>
-        <div class="cb">
-          <div class="ct">CPALL Connect</div>
-          <div class="cd">ระบบเชื่อมต่อ CPALL</div>
+      <a class="fullrow" href="https://anirut1996.github.io/PASSWORD/" target="_blank">
+        <div class="row-icon ic-teal">🤵</div>
+        <div class="row-text">
+          <div class="row-title">สำหรับผู้จัดการร้าน</div>
+          <div class="row-sub">เมนูสำหรับผู้จัดการร้านเท่านั่น🔐</div>
         </div>
-        <div class="arr">›</div>
+        <span class="row-arr">›</span>
       </a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScVj5GHq4pug9uyTzD4eCPFsqe1WjJONGUbaam7kBmDB-v48g/viewform"
-         target="_blank" class="card c-pink">
-        <div class="ci">💬</div>
-        <div class="cb">
-          <div class="ct">แสดงความคิดเห็นพนักงาน</div>
-          <div class="cd">แบบฟอร์มความคิดเห็นภายในร้าน</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-    </div>
 
-    <!-- ── ส่วนที่ 5: ความปลอดภัย & อื่นๆ ── -->
-    <div class="sec-head">
-      <span class="sec-label dark">🔐 ความปลอดภัย &amp; อื่นๆ</span>
-      <div class="sec-line"></div>
-    </div>
-    <div class="grid">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc78MzikWneeM-jxVNA7IvD13tosQYFslQ2XHMMQw4YZQcxdA/viewform"
-         target="_blank" class="card c-blue">
-        <div class="ci">🔍</div>
-        <div class="cb">
-          <div class="ct">ค้นตัว—เข้า-ออกร้าน</div>
-          <div class="cd">บันทึกค้นตัว ฝากแบงค์</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-      <a href="https://docs.google.com/spreadsheets/d/1SjZC_sWcOjZpfQ2KitkpC6QInZ-F1nReAlP6OFKLpNI/edit?gid=1271066610#gid=1271066610"
-         target="_blank" class="card c-teal">
-        <div class="ci">📋</div>
-        <div class="cb">
-          <div class="ct">ตรวจสอบการค้นตัว</div>
-          <div class="cd">ดูประวัติการค้นตัวออกร้าน</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-      <a href="https://docs.google.com/spreadsheets/d/1nh3JJ2BALuOhsN19eJ09U2GT8KppwNF6OfEdIlTW0mE/edit?resourcekey=&gid=527036244#gid=527036244"
-         target="_blank" class="card c-teal">
-        <div class="ci">🗒</div>
-        <div class="cb">
-          <div class="ct">ตรวจสอบการค้นตัว</div>
-          <div class="cd">ดูประวัติการค้นตัวกลับเข้าร้าน</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdgRwVZM6y78YKcr7MELa4dfHyqqKhk8ZrcouE1Zvd7GCqEcQ/viewform"
-         target="_blank" class="card c-yellow">
-        <div class="ci">☀️</div>
-        <div class="cb">
-          <div class="ct">จดมิเตอร์โซล่าเซลล์</div>
-          <div class="cd">บันทึกค่าไฟโซล่าเซลล์รายวัน</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-    </div>
-
-    <!-- ── ส่วนที่ 6: สำหรับผู้จัดการ ── -->
-    <div class="sec-head">
-      <span class="sec-label green">👔 สำหรับผู้จัดการ</span>
-      <div class="sec-line"></div>
-    </div>
-    <div class="grid">
-      <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/112539"
-         target="_blank" class="card c-green">
-        <div class="ci">🗂️</div>
-        <div class="cb">
-          <div class="ct">สำหรับ ผจก.</div>
-          <div class="cd">เมนูพิเศษสำหรับผู้จัดการร้าน</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
-      <a href="https://sites.google.com/view/3447-anirut-web/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81/%E0%B8%95%E0%B8%94%E0%B8%95%E0%B8%AD-%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B8%96%E0%B8%B2%E0%B8%A1"
-         target="_blank" class="card c-teal">
-        <div class="ci">📞</div>
-        <div class="cb">
-          <div class="ct">ติดต่อ-สอบถาม</div>
-          <div class="cd">ช่องทางติดต่อภายในองค์กร</div>
-        </div>
-        <div class="arr">›</div>
-      </a>
     </div>
   </div>
 
-  <footer>
-    <strong>7-Eleven</strong> สาขา 3447 &nbsp;·&nbsp; ระบบจัดการภายใน &nbsp;·&nbsp; สำหรับพนักงานเท่านั้น จัดทำโดย ผจก.อนิรุทธิ์ สอนศรี ติดต่อ 095-8904540
-  </footer>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="fb">
+    <div class="fd1"></div>
+    <div class="fd2"></div>
+    <div class="fd3"></div>
+    <div style="margin-left:5px">
+      <div class="fname">7-Eleven สาขาเขมราฐ</div>
+      <div class="fsub">ผู้สร้าง ผจก.อนิรุทธิ์ สอนศรี 095-8904540 ห้ามเผยแพร่ข้อมมูลแก่บุคคลภายนอก เว็บไซต์นี้จัดทำเพื่อรวบรวมงานร้านสาขา เท่านั่น</div>
+    </div>
+  </div>
+  <span style="font-size:17px">🏠</span>
+</div>
+
+<!-- SCRIPT -->
+<script>
+  const days   = ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'];
+  const months = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+
+  function tick() {
+    const n = new Date(), p = x => String(x).padStart(2, '0');
+    document.getElementById('ct').textContent  = p(n.getHours()) + ':' + p(n.getMinutes()) + ':' + p(n.getSeconds());
+    document.getElementById('cd').textContent  = n.getDate() + ' ' + months[n.getMonth()] + ' ' + (n.getFullYear() + 543);
+    document.getElementById('cdy').textContent = 'วัน' + days[n.getDay()];
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>
 
 </body>
 </html>
